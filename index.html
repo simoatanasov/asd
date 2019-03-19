@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Single Web Application</title>
+  <link href="styles.css" type="text/css" rel="stylesheet">
+  <script src="mysql_insert.js"></script>
+</head>
+<body background="background1.png">
+  <header>
+    <h1>Welcome to Social Media</h1>
+    <button onclick="document.getElementById('modal-wrapper-reg').style.display='block'" style="width: 200px; margin-left: auto; margin-right: auto;">
+    Register</button>
+    <button onclick="document.getElementById('modal-wrapper-login').style.display='block'" style="width: 200px; margin-left: auto; margin-right: auto;">
+    Login</button>
+  </header>
+  <div class="submit-area">
+    <input type="text" style="width: 400px; height: 110px;">
+    <button style="width: 200px;">Post Now</button>
+  </div>
+  <div class="post-area">
+  </div>
+            
+<div id="modal-wrapper-reg" class="modal">            
+  <form class="modal-content animate" action="/controllers/register-controller" method="POST">
+    <div class="container">
+      <h1>Please type you user details:</h1>
+      <input type="text" placeholder="Enter Username" name="reguname" id="reguname">
+      <input type="password" placeholder="Enter Password" name="regpsw" id="regpsw">      
+      <button type="submit" style="width: 200px; height: 35px;">Register</button>
+    </div>
+  </form>
+</div>
+<div id="modal-wrapper-login" class="modal2">            
+  <form class="modal-content animate" action="/controllers/authenticate-controller" method="POST">
+    <div class="container">
+      <h1>Please type you user details:</h1>
+      <input type="text" placeholder="Enter Username" name="loginuname" id="loginuname">
+      <input type="password" placeholder="Enter Password" name="loginpsw" id="loginpsw">        
+      <button type="submit" style="width: 200px; height: 35px;">Login</button>
+    </div>
+  </form>
+</div>
+            
+<script>
+
+var modal = document.getElementById('modal-wrapper-reg');
+var modal_log = document.getElementById('modal-wrapper-login');
+  window.onclick = function(event) {
+    if (event.target == modal) {
+    modal.style.display = "none";
+    }
+    if(event.target == modal_log) {
+      modal_log.style.display = "none";
+    }
+  }
+</script>
+
+</body>
+
+</html>
